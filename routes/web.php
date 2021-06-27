@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Default routes
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,5 +22,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+// Project routes
+
+Route::get('/monsters', function () {
+    return view('monsters.list');
+})->middleware(['auth'])->name('monsters');
 
 require __DIR__.'/auth.php';
