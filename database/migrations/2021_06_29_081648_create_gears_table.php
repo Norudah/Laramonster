@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMonstersTable extends Migration
+class CreateGearsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class CreateMonstersTable extends Migration
      */
     public function up()
     {
-        Schema::create('monsters', function (Blueprint $table) {
+        Schema::create('gears', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('valeur');
+            $table->string('categorie');
+            $table->tinyInteger('isWeapon');
+            $table->string('weight');
             $table->string('type');
-            $table->string('height');
-            $table->tinyInteger('isDead');
-            $table->string('diet');
-            $table->float('health', 6,2);
-            $table->integer('attack');
-            $table->integer('defense');
-            $table->integer('speed');
-            $table->string('faction');
+            $table->string('materials');
+            $table->foreignId('monster_id')->constrained('monsters');
             $table->timestamps();
         });
     }
@@ -36,6 +34,6 @@ class CreateMonstersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('monsters');
+        Schema::dropIfExists('equipements');
     }
 }
