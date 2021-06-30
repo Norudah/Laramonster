@@ -29,4 +29,12 @@ Route::get('/monsters', function () {
     return view('monsters.list');
 })->middleware(['auth'])->name('monsters');
 
+Route::get('/gears', function () {
+    return view('gears.list');
+})->middleware(['auth'])->name('gears');
+
+Route::get('/arena', function () {
+    return view('arena.list');
+})->middleware(['auth'])->name('arena');
+
 require __DIR__.'/auth.php';
