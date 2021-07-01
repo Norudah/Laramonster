@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Monster;
+use App\Models\Gear;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,5 +37,15 @@ Route::get('/gears', function () {
 Route::get('/arena', function () {
     return view('arena.list');
 })->middleware(['auth'])->name('arena');
+
+
+
+Route::get('/lol',function() {
+    $gear = Gear::find(1);
+    $monster = Monster::find(1);
+
+    $obj = $gear;
+    ddd($obj->monsters);
+});
 
 require __DIR__.'/auth.php';

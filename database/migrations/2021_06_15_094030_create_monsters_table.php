@@ -16,6 +16,7 @@ class CreateMonstersTable extends Migration
         Schema::create('monsters', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string("description");
             $table->string('type');
             $table->string('height');
             $table->tinyInteger('isDead');
@@ -26,6 +27,7 @@ class CreateMonstersTable extends Migration
             $table->integer('speed');
             $table->string('faction');
             $table->timestamps();
+            $table->bigInteger("user_id");
         });
     }
 

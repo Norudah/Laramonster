@@ -22,9 +22,10 @@ class CreateGearsTable extends Migration
             $table->string('weight');
             $table->string('type');
             $table->string('materials');
-            $table->foreignId('monster_id')->constrained('monsters');
             $table->timestamps();
         });
+
+        
     }
 
     /**
