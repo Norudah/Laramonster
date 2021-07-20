@@ -11,7 +11,7 @@ class Monster extends Model
     use HasFactory;
 
     protected $fillable = ["name", "description", "type", "height", "isDead", "diet",
-    "health", "attack", "defense", "speed", "faction", "user_id"];
+    "health", "attack", "defense", "speed", "faction", "user_id", "fight_id"];
 
     public function gears() {
         return $this->belongsToMany(Gear::class, 'monster_gear');
