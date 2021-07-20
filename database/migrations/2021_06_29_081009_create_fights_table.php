@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMonstersIdToUsersTable extends Migration
+class CreateFightsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddMonstersIdToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('monster_id')->constrained('monsters');
+        Schema::create('fights', function (Blueprint $table) {
+            $table->id();
+            $table->dateTime('date_at');
+            $table->bigInteger("arena_id");
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddMonstersIdToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('fights');
     }
 }
