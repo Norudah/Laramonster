@@ -17,15 +17,12 @@ class CreateGearsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('valeur');
-            $table->string('categorie');
+            $table->string('categorie'); // leger, moyen, lourd
             $table->tinyInteger('isWeapon');
-            $table->string('weight');
-            $table->string('type');
+            $table->string('type'); // Uniquement dispo si c'est une arme
             $table->string('materials');
             $table->timestamps();
         });
-
-        
     }
 
     /**
