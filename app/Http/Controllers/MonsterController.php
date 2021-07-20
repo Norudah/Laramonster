@@ -12,7 +12,7 @@ class MonsterController extends Controller
    {
       $monsters = Monster::all();
       // $users = User::factory()->count(3)->create();
-      // $mons = Monster::factory()->count(20)->create();
+      // $monsters = Monster::factory()->count(20)->create();
       return view('monsters.list', ['monsters' => $monsters]);
    }
 
