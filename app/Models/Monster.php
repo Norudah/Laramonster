@@ -21,4 +21,9 @@ class Monster extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function fights() 
+    {
+        return $this->belongsTo(Fight::class, "fight_id");
+    }
 }
