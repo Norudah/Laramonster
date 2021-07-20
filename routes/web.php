@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MonsterController;
 use App\Models\Monster;
 use App\Models\Gear;
 /*
@@ -26,9 +27,9 @@ Route::get('/dashboard', function () {
 
 // Project routes
 
-Route::get('/monsters', function () {
-    return view('monsters.list');
-})->middleware(['auth'])->name('monsters');
+Route::get('/monsters',
+[MonsterController::class, 'index']
+)->middleware(['auth'])->name('monsters');
 
 Route::get('/gears', function () {
     return view('gears.list');
