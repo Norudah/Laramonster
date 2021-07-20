@@ -11,4 +11,8 @@ class Monster extends Model
     public function gears() {
         return $this->belongsToMany(Gear::class, 'monster_gear');
     }
+
+    public function fights() {
+        return $this->belongsTo(Fight::class, "fight_id");
+    }
 }
