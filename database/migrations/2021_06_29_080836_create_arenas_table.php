@@ -28,6 +28,6 @@ class CreateArenasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('arena');
+        Schema::dropIfExists('arenas');
     }
 }

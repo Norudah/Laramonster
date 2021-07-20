@@ -35,6 +35,6 @@ class CreateGearsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipements');
+        Schema::dropIfExists('gears');
     }
 }
