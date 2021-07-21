@@ -33,7 +33,8 @@ class MonsterFactory extends Factory
             'defense' => $this->faker->numberBetween(10, 25),
             'speed' => $this->faker->numberBetween(1, 3),
             'faction' => $this->faker->randomElement(array('bleu', 'jaune', 'rouge')),
-            'user_id' => $this->faker->numberBetween(1, 2)
+            'user_id' => $this->faker->numberBetween(1, 2),
+            'fight_id' => $this->faker->fight_id = 0
         ];
     }
 }
