@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GearController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MonsterController;
 use App\Models\Monster;
@@ -31,9 +32,9 @@ Route::get('/monsters',
 [MonsterController::class, 'index']
 )->middleware(['auth'])->name('monsters');
 
-Route::get('/gears', function () {
-    return view('gears.list');
-})->middleware(['auth'])->name('gears');
+// Gears
+Route::get('/gears', [GearController::class, 'index'])->middleware(["auth"])->name('gears');
+Route::post('/gears/add', [GearController::class, 'add'])->middleware(["auth"])->name('gear-add');
 
 Route::get('/arena', function () {
     return view('arena.list');
