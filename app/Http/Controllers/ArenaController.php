@@ -23,4 +23,14 @@ class ArenaController extends Controller
        
        return redirect('arena')->with('success', 'Arene est rajouter!');;
     }
+
+    public function deleteArena(Request $request)
+    {       
+        ddd('oui');
+        $arena = new Arena;
+        $arena->id = $request->id;
+        $arena->delete();
+        $arena->save();
+       return redirect('arena')->with('success', 'Arene est rajouter!');;
+    }
 }
