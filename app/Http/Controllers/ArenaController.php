@@ -9,8 +9,18 @@ class ArenaController extends Controller
 {
     public function index()
     {
-    return view('arena.list', [
-        'arenas' => Arena::all()
-    ]);
+        return view('arena.list', [
+            'arenas' => Arena::all()
+        ]);
+    }
+
+    public function addArena(Request $request)
+    {       
+       $arena = new Arena;
+       $arena->name = $request->nom;
+       $arena->localisation = $request->localisation; 
+       $arena->save();
+       
+       return redirect('arena')->with('success', 'Arene est rajouter!');;
     }
 }

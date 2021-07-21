@@ -49,7 +49,11 @@ Route::get('/gears', function () {
     return view('gears.list');
 })->middleware(['auth'])->name('gears');
 
+//ARENA ROUTE
 Route::get('/arena', [ArenaController::class, 'index'])->middleware(['auth'])->name('arena');
+
+Route::post('/arena/add', [ArenaController::class, 'addArena'])->middleware(['auth'])->name('add');
+
 
 
 

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Arenes') }}
         </h2>
     </x-slot>
 
@@ -9,21 +9,22 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    Arenes
+                    <h2>Ajouter une arene</h2>
                 </div>
-
                 <div class="p-6 bg-white border-b border-gray-200">
-                    Ajouter une Arene
-                    {!! Form::open(['controller' => 'controller/ArenaController']) !!}
-                        <div class="p-6 bg-white border-b border-gray-200">
-                                 Nom de l'arene
-                            {!!  Form::text('arenaName'); !!}
-                            Localisation de l'arene 
-                            {!!  Form::text('arenaLocalisation'); !!}
-                            {!!  Form::submit('Ajouter !'); !!}
-                        </div>
-                    {!! Form::close() !!}
-                </div>
+                    
+                    //FORM
+                    <form action="{{ route('add') }}" method="POST">
+                        {{ csrf_field() }}
+                        <label for="name">Nom de l'arene : </label>
+                            <input type="text" name="nom" placeholder="Nom">
+                        <label for="Localisation">Nom de la localication : </label>
+                            <input type="text" name="localisation" placeholder="Localisation">
+                        <input type="submit" value="Envoyer !">
+                    </form> 
+
+
+                </div> 
             </div>
         </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -51,8 +52,12 @@
                                     <td class="border border-green-600 mx-auto">{{ $item->created_at }}</td>
                                     <td class="border border-green-600 mx-auto">{{ $item->deleted_at }}</td> 
                                     <td class="border border-green-600 mx-auto"> 
-                                        <button class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
-                                        <button class="bg-blue-500 hover:bg-black-700 text-white font-bold py-2 px-4 rounded">Modifier</button>
+                                        <a href="arena/deletedArenaAction">
+                                            <button class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
+                                        </a>
+                                        <a href="arena/updateArenaAction">
+                                            <button class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Modifier</button>
+                                        </a>
                                      </td>
                                 </tr>
                             @endforeach
