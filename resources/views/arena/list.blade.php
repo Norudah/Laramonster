@@ -34,25 +34,25 @@
                     <table class="border-collapse border border-green-800 table-auto">
                         <thead>
                             <tr>
-                                <th class="border border-green-600">ID</th>
-                                <th class="border border-green-600">Nom</th>
-                                <th class="border border-green-600">Localisation</th>
-                                <th class="border border-green-600">Créer le</th>
-                                <th class="border border-green-600">Modifier le </th>
-                                <th class="border border-green-600">Action</th>
+                                <th class="border border-green-600 mx-auto">ID</th>
+                                <th class="border border-green-600 mx-auto">Nom</th>
+                                <th class="border border-green-600 mx-auto">Localisation</th>
+                                <th class="border border-green-600 mx-auto">Créer le</th>
+                                <th class="border border-green-600 mx-auto">Modifier le </th>
+                                <th class="border border-green-600 mx-auto">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($arenas as $item)
                                 <tr>
-                                    <td class="border border-green-600">{{ $item->id }}</td>
-                                    <td class="border border-green-600">{{ $item->name }}</td>
-                                    <td class="border border-green-600">{{ $item->localisation }}</td>
-                                    <td class="border border-green-600">{{ $item->created_at }}</td>
-                                    <td class="border border-green-600">{{ $item->deleted_at }}</td> 
-                                    <td class="border border-green-600"> 
-                                        <button>Supprimer</button>
-                                        <button>Modifier</button>
+                                    <td class="border border-green-600 mx-auto">{{ $item->id }}</td>
+                                    <td class="border border-green-600 mx-auto">{{ $item->name }}</td>
+                                    <td class="border border-green-600 mx-auto">{{ $item->localisation }}</td>
+                                    <td class="border border-green-600 mx-auto">{{ $item->created_at }}</td>
+                                    <td class="border border-green-600 mx-auto">{{ $item->deleted_at }}</td> 
+                                    <td class="border border-green-600 mx-auto"> 
+                                        <button class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
+                                        <button class="bg-blue-500 hover:bg-black-700 text-white font-bold py-2 px-4 rounded">Modifier</button>
                                      </td>
                                 </tr>
                             @endforeach
