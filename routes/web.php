@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArenaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MonsterController;
 use App\Models\Monster;
@@ -48,9 +49,7 @@ Route::get('/gears', function () {
     return view('gears.list');
 })->middleware(['auth'])->name('gears');
 
-Route::get('/arena', function () {
-    return view('arena.list');
-})->middleware(['auth'])->name('arena');
+Route::get('/arena', [ArenaController::class, 'index'])->middleware(['auth'])->name('arena');
 
 
 
