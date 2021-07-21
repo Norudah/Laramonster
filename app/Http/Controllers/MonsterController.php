@@ -14,4 +14,28 @@ class MonsterController extends Controller
       return view('monsters.list', ['monsters' => $monsters]);
    }
 
+   function update (Request $request)
+   {
+       $monster = Monster::find($request->id);
+       return view('monsters.updateMonster', ['monster' => $monster]);
+   }
+
+   function save (Request $request)
+   {
+       $monster = Monster::find($request->id);
+       $monster->name = $request->name;
+       $monster->description = $request->description;
+       $monster->faction = $request->faction;
+       $monster->save();
+
+       return redirect('monsters');
+   }
+
+   function delete (Request $request)
+   {
+       $monster = Monster::find($request->id);
+       $monster->delete();
+       return redirect('monsters')->with('status', 'Monster deleted ! ');
+   }
+
 }

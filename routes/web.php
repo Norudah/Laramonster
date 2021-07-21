@@ -31,6 +31,19 @@ Route::get('/monsters',
 [MonsterController::class, 'index']
 )->middleware(['auth'])->name('monsters');
 
+
+Route::get('/monster/update/{id}',
+    [MonsterController::class, 'update']
+)->middleware(['auth'])->name('update');
+
+Route::post('/monster/save',
+    [MonsterController::class, 'save']
+)->middleware(['auth'])->name('save');
+
+Route::get('/monster/delete/{id}',
+    [MonsterController::class, 'delete']
+)->middleware(['auth'])->name('delete');
+
 Route::get('/gears', function () {
     return view('gears.list');
 })->middleware(['auth'])->name('gears');
