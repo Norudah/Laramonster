@@ -18,11 +18,18 @@ class UserController extends Controller
         return redirect("users");
     }
 
-    function modify($id, Request $request) {
-
+    function modify($id) {
+        $user = User::find($id);
+        return view('users.modify', ['user' => $user]);
     }
 
     function modifyPersist($id, Request $request) {
+        $user = User::find($id);
+        
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
 
+        return redirect()->route('users');
     }
 }
