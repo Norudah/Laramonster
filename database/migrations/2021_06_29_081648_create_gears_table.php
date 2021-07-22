@@ -16,11 +16,11 @@ class CreateGearsTable extends Migration
         Schema::create('gears', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('valeur');
-            $table->string('categorie'); // leger, moyen, lourd
-            $table->tinyInteger('isWeapon');
+            $table->boolean('isWeapon');
+            $table->integer('value');
+            $table->string('material');
+            $table->string('category'); // leger, moyen, lourd
             $table->string('type'); // Uniquement dispo si c'est une arme
-            $table->string('materials');
             $table->timestamps();
         });
     }

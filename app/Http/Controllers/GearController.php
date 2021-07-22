@@ -13,7 +13,19 @@ class GearController extends Controller
     }
 
     function add(Request $request) {
-        dd($request->request);
+        
+        $gear = new Gear();
+        
+        $gear->isWeapon = $request->isWeapon;
+        $gear->name = $request->name;
+        $gear->value = $request->value;
+        $gear->material = $request->material;
+        $gear->type = $request->type;
+        $gear->category = $request->category;
+
+        $gear->save();
+
+        // dd($request["isWeapon"]);
      }  
     
 }

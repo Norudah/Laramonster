@@ -29,7 +29,7 @@
                                     {!! Form::text('value') !!}
 
                                     {!! Form::label('material', "Matériaux de l'équipement") !!}
-                                    {!! Form::text('meterial') !!}
+                                    {!! Form::text('material') !!}
 
                                     {!! Form::label('type', "Type de l'arme")!!}
                                     {!! Form::select('type', [
