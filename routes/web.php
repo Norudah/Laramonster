@@ -45,9 +45,12 @@ Route::get('/monster/delete/{id}',
     [MonsterController::class, 'delete']
 )->middleware(['auth'])->name('delete');
 
-Route::get('/gears', function () {
-    return view('gears.list');
-})->middleware(['auth'])->name('gears');
+// Gears
+Route::get('/gears', [GearController::class, 'index'])->middleware(["auth"])->name('gears');
+Route::post('/gears/add', [GearController::class, 'add'])->middleware(["auth"])->name('gear-add');
+Route::get('/gears/delete/{id}', [GearController::class, 'delete'])->middleware(["auth"])->name('gear-delete');
+Route::get('/gears/modify/{id}', [GearController::class, 'modify'])->middleware(["auth"])->name('gear-modify');
+Route::post('/gears/modify/{id}', [GearController::class, 'modifyPersist'])->middleware(["auth"])->name('gear-modify-persist');
 
 //ARENA ROUTE
 Route::get('/arena', [ArenaController::class, 'index'])->middleware(['auth'])->name('arena');
