@@ -21,16 +21,17 @@ class ArenaController extends Controller
        $arena->localisation = $request->localisation; 
        $arena->save();
        
-       return redirect('arena')->with('success', 'Arene est rajouter!');;
+       return redirect('arena')->with('success', 'Arene est rajouter!');
     }
 
-    public function deleteArena(Request $request)
-    {       
-        ddd('oui');
-        $arena = new Arena;
-        $arena->id = $request->id;
-        $arena->delete();
-        $arena->save();
-       return redirect('arena')->with('success', 'Arene est rajouter!');;
+    public function deleteArena($id)
+    {
+        if(!empty($id)){
+            $arena = Arena::find($id);
+            $arena->delete();
+            return redirect('arena')->with('success', $arena->name.' à été supprimer!');
+        }else{
+            return redirect('arena')->with('error', 'ID manquant!');
+        }
     }
 }

@@ -52,12 +52,10 @@
                                     <td class="border border-green-600 mx-auto">{{ $item->created_at }}</td>
                                     <td class="border border-green-600 mx-auto">{{ $item->deleted_at }}</td> 
                                     <td class="border border-green-600 mx-auto"> 
-                                        <form action="{{ route('delete') }}" method="POST">
-                                            @csrf
-                                            @method('delete')
+                                            
+                                        <a href="{{ route('delete', $item->id) }}">
                                             <button type="submit" class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
-                                        </form>
-                                        
+                                        </a>    
                                             <button class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Modifier</button>
                                         
                                      </td>
