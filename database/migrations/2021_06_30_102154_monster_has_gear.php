@@ -28,6 +28,6 @@ class MonsterHasGear extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('monster_gear');
     }
 }

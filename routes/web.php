@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArenaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MonsterController;
+use App\Http\Controllers\GearController;
 use App\Models\Monster;
 use App\Models\Gear;
 /*

@@ -25,6 +25,7 @@
                                         "jaune" => "Jaune"], "Jaune") !!}<br><br>
 
                         {!! Form::submit('update monster') !!}<br><br>
+                        
                     {!! Form::close() !!}
                     
 
