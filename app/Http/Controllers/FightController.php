@@ -35,18 +35,8 @@ class FightController extends Controller
 
         $fight = new Fight;
         $fight->arena_id = $arenaFight->id;
+        $fight->save();
 
-
-
-
-        
-
-        // $arena->name = $request->nom;
-
-
-        
-
-    
-        // return redirect('arena')->with('success', 'Arene est rajouter!');
+        ddd($request);
     }
 }
