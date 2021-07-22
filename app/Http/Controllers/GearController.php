@@ -13,7 +13,6 @@ class GearController extends Controller
     }
 
     function add(Request $request) {
-        
         $gear = new Gear();
         
         $gear->isWeapon = $request->isWeapon;
@@ -24,8 +23,14 @@ class GearController extends Controller
         $gear->category = $request->category;
 
         $gear->save();
+        return redirect()->route("gears");
+    }
 
-        // dd($request["isWeapon"]);
-     }  
+    function delete (Request $request) {
+        
+    }
+
+    function update (Request $request) {}
+
     
 }
