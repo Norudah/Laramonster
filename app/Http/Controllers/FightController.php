@@ -10,7 +10,7 @@ class FightController extends Controller
     public function index()
     {
         return view('fight.list', [
-            'fights' => Fight::all()
+            'fight' => Fight::all()
         ]);
     }
 }

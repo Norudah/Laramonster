@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MonsterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GearController;
+use App\Http\Controllers\FightController;
 use App\Models\Monster;
 use App\Models\Gear;
 /*
@@ -59,7 +60,7 @@ Route::get('/users/modify/{id}', [UserController::class, 'modify'])->middleware(
 Route::post('/users/modify/{id}', [UserController::class, 'modifyPersist'])->middleware(["auth"])->name('user-modify-persist');
 
 // Fight
-Route::get('/fights', [UserController::class, 'index'])->middleware(["auth"])->name('fights');
+Route::get('/fights', [FightController::class, 'index'])->middleware(["auth"])->name('fights');
 
 
 Route::get('/lol',function() {
