@@ -63,18 +63,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($gears as $truc)
-                                        {{-- {{ dd($truc->isWeapon) }} --}}
+                                        @foreach ($gears as $gear)
+                        
                                             <tr>
-                                                <td class="border border-green-600 mx-auto">{{ $truc->id }}</td>
-                                                <td class="border border-green-600 mx-auto">{{ $truc->name }}</td>
-                                                <td class="border border-green-600 mx-auto">{{ $truc->isWeapon }}</td>
-                                                <td class="border border-green-600 mx-auto">{{ $truc->material }}</td>
-                                                <td class="border border-green-600 mx-auto">{{ $truc->type }}</td> 
-                                                <td class="border border-green-600 mx-auto">{{ $truc->category }}</td> 
+                                                <td class="border border-green-600 mx-auto">{{ $gear->id }}</td>
+                                                <td class="border border-green-600 mx-auto">{{ $gear->name }}</td>
+                                                <td class="border border-green-600 mx-auto">{{ $gear->isWeapon }}</td>
+                                                <td class="border border-green-600 mx-auto">{{ $gear->material }}</td>
+                                                <td class="border border-green-600 mx-auto">{{ $gear->type }}</td> 
+                                                <td class="border border-green-600 mx-auto">{{ $gear->category }}</td> 
                                                 <td class="border border-green-600 mx-auto"> 
-                                                    <button type="submit" class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
-                                                    <button class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Modifier</button>
+                                                    {{-- <button type="submit" class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
+                                                    <button class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Modifier</button> --}}
+                                                    
+                                                        <a class="btn btn-info" href="{{ route('gear-modify',$gear->id) }}">Modifier</a>    
+                                                        <a class="btn btn-primary" href="{{ route('gear-delete',$gear->id) }}">Supprimer</a>   
+                                                           
+                                                   
                                                 </td>
                                             </tr>
                                         @endforeach
