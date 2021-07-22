@@ -40,6 +40,10 @@ Route::post('/monster/save',
     [MonsterController::class, 'save']
 )->middleware(['auth'])->name('save');
 
+Route::post('/monster/add',
+    [MonsterController::class, 'add']
+)->middleware(['auth'])->name('add');
+
 Route::get('/monster/delete/{id}',
     [MonsterController::class, 'delete']
 )->middleware(['auth'])->name('delete');

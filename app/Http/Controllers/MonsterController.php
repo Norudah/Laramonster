@@ -22,6 +22,12 @@ class MonsterController extends Controller
        return view('monsters.updateMonster', ['monster' => $monster]);
    }
 
+   function add (Request $request)
+   {
+       return view('monsters.addMonster');
+   }
+
+
    function save (Request $request)
    {
        $monster = Monster::find($request->id);

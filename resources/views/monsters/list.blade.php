@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    Listing de tous les monstres
+                    Listing de tous les monstres [<a href="{{ route('add') }}">Add</a>]
                     @foreach ($monsters as $monster)
                         <li>
                             {{ $monster->name }} <i>(by {{ $monster->user->name }})</i> 
