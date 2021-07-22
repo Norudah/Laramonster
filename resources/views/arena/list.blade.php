@@ -12,18 +12,15 @@
                     <h2>Ajouter une arene</h2>
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200">
-                    
                     {{-- FORM --}}
-                    <form action="{{ route('add') }}" method="POST">
-                        {{ csrf_field() }}
+                    <form action="{{ route('add-arena') }}" method="POST">
+                        @csrf
                         <label for="name">Nom de l'arene : </label>
                             <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="nom" placeholder="Nom">
                         <label for="Localisation">Nom de la localication : </label>
                             <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="localisation" placeholder="Localisation">
                         <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Envoyer !">
                     </form> 
-
-
                 </div> 
             </div>
         </div>
@@ -53,11 +50,12 @@
                                     <td class="border border-green-600 mx-auto">{{ $item->deleted_at }}</td> 
                                     <td class="border border-green-600 mx-auto"> 
                                             
-                                        <a href="{{ route('delete', $item->id) }}">
+                                        <a href="{{ route('delete-arena', $item->id) }}">
                                             <button type="submit" class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
                                         </a>    
+                                        <a href="{{ route('update-arena', $item->id) }}">
                                             <button class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Modifier</button>
-                                        
+                                        </a>
                                      </td>
                                 </tr>
                             @endforeach

@@ -34,4 +34,21 @@ class ArenaController extends Controller
             return redirect('arena')->with('error', 'ID manquant!');
         }
     }
+
+    public function updateArena($id){
+
+        return view('arena.update', [
+            'arenas' => Arena::find($id)
+        ]);
+    }
+
+    public function updateArenaStats($id, Request $request)
+    {
+        $arena = Arena::find($id);
+        $arena->name = $request->nom;
+        $arena->localisation = $request->localisation; 
+        $arena->save();
+
+        return redirect('arena')->with('success', $arena->name.' à été modifier!');
+    }
 }

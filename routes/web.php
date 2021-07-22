@@ -51,8 +51,10 @@ Route::get('/gears', function () {
 
 //ARENA ROUTE
 Route::get('/arena', [ArenaController::class, 'index'])->middleware(['auth'])->name('arena');
-Route::post('/arena/add', [ArenaController::class, 'addArena'])->middleware(['auth'])->name('add');
-Route::get('/arena/delete/{id}', [ArenaController::class, 'deleteArena'])->middleware(['auth'])->name('delete');
+Route::post('/arena/add', [ArenaController::class, 'addArena'])->middleware(['auth'])->name('add-arena');
+Route::get('/arena/delete/{id}', [ArenaController::class, 'deleteArena'])->middleware(['auth'])->name('delete-arena');
+Route::get('/arena/update/{id}', [ArenaController::class, 'updateArena'])->middleware(['auth'])->name('update-arena');
+Route::get('/arena/update/stats/{id}', [ArenaController::class, 'updateArenaStats'])->middleware(['auth'])->name('update-arena-stats');
 
 
 Route::get('/lol',function() {
