@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArenaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MonsterController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\GearController;
 use App\Models\Monster;
 use App\Models\Gear;
@@ -49,6 +50,9 @@ Route::post('/arena/add', [ArenaController::class, 'addArena'])->middleware(['au
 Route::get('/arena/delete/{id}', [ArenaController::class, 'deleteArena'])->middleware(['auth'])->name('delete-arena');
 Route::get('/arena/update/{id}', [ArenaController::class, 'updateArena'])->middleware(['auth'])->name('update-arena');
 Route::get('/arena/update/stats/{id}', [ArenaController::class, 'updateArenaStats'])->middleware(['auth'])->name('update-arena-stats');
+
+// Users
+Route::get('/users', [UserController::class, 'index'])->middleware(["auth"])->name('users');
 
 
 Route::get('/lol',function() {
