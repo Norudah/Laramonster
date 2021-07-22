@@ -11,8 +11,6 @@ class MonsterController extends Controller
    function index()
    {
       $monsters = Monster::all();
-      // $users = User::factory()->count(3)->create();
-      // $monsters = Monster::factory()->count(20)->create();
       return view('monsters.list', ['monsters' => $monsters]);
    }
 
@@ -24,7 +22,17 @@ class MonsterController extends Controller
 
    function add (Request $request)
    {
-       return view('monsters.addMonster');
+        $gear = new Gear();
+            
+        $gear->isWeapon = $request->isWeapon;
+        $gear->name = $request->name;
+        $gear->value = $request->value;
+        $gear->material = $request->material;
+        $gear->type = $request->type;
+        $gear->category = $request->category;
+
+        $gear->save();
+        return redirect()->route("gears");
    }
 
 
