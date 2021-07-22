@@ -11,4 +11,18 @@ class UserController extends Controller
         $users = User::all();
         return view('users.list', ["users" => $users]);
     }
+
+    function delete($id) {
+        $user = User::find($id);
+        $user->delete();
+        return redirect("users");
+    }
+
+    function modify($id, Request $request) {
+
+    }
+
+    function modifyPersist($id, Request $request) {
+
+    }
 }
