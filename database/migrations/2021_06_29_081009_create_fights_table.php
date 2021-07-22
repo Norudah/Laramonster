@@ -15,7 +15,7 @@ class CreateFightsTable extends Migration
     {
         Schema::create('fights', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('date_at')->default;
+            $table->dateTime('date_at');
             $table->bigInteger("arena_id");
             $table->timestamps();
         });
