@@ -58,6 +58,9 @@ Route::get('/users/delete/{id}', [UserController::class, 'delete'])->middleware(
 Route::get('/users/modify/{id}', [UserController::class, 'modify'])->middleware(["auth"])->name('user-modify');
 Route::post('/users/modify/{id}', [UserController::class, 'modifyPersist'])->middleware(["auth"])->name('user-modify-persist');
 
+// Fight
+Route::get('/fights', [UserController::class, 'index'])->middleware(["auth"])->name('fights');
+
 
 Route::get('/lol',function() {
     $gear = Gear::find(1);
