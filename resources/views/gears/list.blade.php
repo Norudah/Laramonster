@@ -84,8 +84,13 @@
                                                     {{-- <button type="submit" class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
                                                     <button class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Modifier</button> --}}
                                                     
-                                                        <a class="btn btn-info" href="{{ route('gear-modify',$gear->id) }}">Modifier</a>    
-                                                        <a class="btn btn-primary" href="{{ route('gear-delete',$gear->id) }}">Supprimer</a>   
+                                                        <a href="{{ route('gear-modify',$gear->id) }}">
+                                                            <button class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Modifier</button>
+                                                        </a>    
+
+                                                        <a href="{{ route('gear-delete',$gear->id) }}">
+                                                            <button class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
+                                                        </a>   
                                                            
                                                    
                                                 </td>

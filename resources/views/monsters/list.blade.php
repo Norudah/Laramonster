@@ -14,8 +14,8 @@
 
                         <li>
                             {{ $monster->name }} <i>(by {{ $monster->user->name ?? ''}})</i> 
-                            [<a href="{{ route('update', $monster->id) }}">update</a>]
-                            [<a href="{{ route('delete', $monster->id) }}">delete</a>]
+                            [<a class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href="{{ route('update', $monster->id) }}">update</a>]
+                            [<a class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href="{{ route('delete', $monster->id) }}">delete</a>]
                         </li>
                     @endforeach
                 </div>

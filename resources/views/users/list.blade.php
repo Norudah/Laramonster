@@ -32,8 +32,13 @@
                                     <td class="border border-green-600 mx-auto">{{ $user->created_at }}</td>
                                     <td class="border border-green-600 mx-auto">{{ $user->updated_at }}</td> 
                                     <td class="border border-green-600 mx-auto"> 
-                                            <a class="btn btn-info" href="{{ route('user-modify', $user->id) }}">Modifier</a>    
-                                            <a class="btn btn-primary" href="{{ route('user-delete', $user->id) }}">Supprimer</a>    
+                                            <a href="{{ route('user-modify', $user->id) }}">
+                                                <button class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Modifier</button>
+                                            </a>    
+                                           
+                                            <a href="{{ route('user-delete', $user->id) }}">
+                                                <button class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
+                                            </a>    
                                     </td>
                                 </tr>
                             @endforeach
