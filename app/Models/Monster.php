@@ -13,8 +13,8 @@ class Monster extends Model
     protected $fillable = ["name", "description", "type", "height", "isDead", "diet",
     "health", "attack", "defense", "speed", "faction", "user_id", "fight_id"];
 
-    public function gears() {
-        return $this->belongsToMany(Gear::class, 'monster_gear');
+    public function monsterGear() {
+        return $this->belongsToMany(MonsterGear::class, 'monster_gears');
     }
 
     public function user()

@@ -26,7 +26,7 @@ class MonsterFactory extends Factory
             'description' => $this->faker->text($maxNbChars = 200),
             'type' => $this->faker->randomElement(array('tarentula', 'cyclope', 'Vampire', 'critters')),
             'height' => $this->faker->numberBetween(100, 200),
-            'isDead' => $this->faker->isDead = 1,
+            'isDead' => $this->faker->isDead = 0,
             'diet' => $this->faker->randomElement(array('veggie', 'canibalisme', 'carnivore', 'omnivore')),
             'health' => $this->faker->numberBetween(80, 100),
             'attack' => $this->faker->numberBetween(20, 40),
