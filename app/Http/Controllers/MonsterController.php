@@ -12,8 +12,10 @@ class MonsterController extends Controller
 {
    function index()
    {
-        $monsters = Monster::all();
-        return view('monsters.list', ['monsters' => $monsters]);
+      $monsters = Monster::all();
+    //   $users = User::factory()->count(3)->create();
+    //   $mons = Monster::factory()->count(4)->create();
+      return view('monsters.list', ['monsters' => $monsters]);
    }
 
    function update (Request $request)

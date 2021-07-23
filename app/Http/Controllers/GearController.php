@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gear;
+
 use Illuminate\Http\Request;
 
 class GearController extends Controller
