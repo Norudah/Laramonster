@@ -59,7 +59,7 @@
                         Combat du 
                         <i>{{ $fight->date_at }}</i>
                         dans l'arène
-                        <i>{{ $fight->arena_id }}</i>
+                        <i class="text-indigo-500">{{ $fight->arenas }}</i>
                     </p>
                     </br>
                     {{-- //fight->id     =>   monster->fight_id -> name --}}

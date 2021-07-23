@@ -13,6 +13,8 @@ class Fight extends Model
 
     public $users;
 
+    public $arenas;
+
     public function arenas() {
         return $this->belongsTo(Arena::class, "arena_id");
     }

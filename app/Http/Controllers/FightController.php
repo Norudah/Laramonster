@@ -28,6 +28,10 @@ class FightController extends Controller
         
             $monster1 = Monster::where('id' , $fight->monster_first_id)->get();
             $monster2 = Monster::where('id' , $fight->monster_second_id)->get();
+            $arenas = Arena::where('id' , $fight->arena_id)->get();
+
+            $arenas = $arenas[0]->name;
+            
 
             $users = [];
             $monstres = [];
@@ -47,6 +51,10 @@ class FightController extends Controller
             
             $fight->users = $users;
             $fight->monsters = $monstres;
+            $fight->arenas = $arenas;
+
+            
+
                
         }
 
