@@ -11,8 +11,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Listing de tous les monstres
                     @foreach ($monsters as $monster)
+
                         <li>
-                            {{ $monster->name }} <i>(by {{ $monster->user->name }})</i> 
+                            {{ $monster->name }} <i>(by {{ $monster->user->name ?? ''}})</i> 
                             [<a href="{{ route('update', $monster->id) }}">update</a>]
                             [<a href="{{ route('delete', $monster->id) }}">delete</a>]
                         </li>
