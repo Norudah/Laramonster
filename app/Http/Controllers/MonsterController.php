@@ -5,16 +5,60 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Monster;
 use App\Models\User;
+use App\Models\Gear;
+use App\Models\MonsterGear;
 
 class MonsterController extends Controller
 {
    function index()
    {
-      $monsters = Monster::all();
-      return view('monsters.list', ['monsters' => $monsters]);
+        $monsters = Monster::all();
+        return view('monsters.list', ['monsters' => $monsters]);
    }
 
    function update (Request $request)
+   {
+        $monster = Monster::find($request->id);
+        $gears = Gear::all();
+       
+        $monstergears = MonsterGear::where('monster_id', $request->id)->get();
+
+        foreach($monstergears as $monstergear){
+            $gearslist = Gear::where('id', $monstergear->gear_id)->get();
+        }
+
+        if($monstergears->isEmpty()){
+            $select = [];
+            foreach($gears as $gear){
+                    $select[$gear->id] = $gear->name;
+                }
+        }else {
+            foreach($monstergears as $monstergear){
+                    $gears = Gear::where('id', $monstergear->gear_id)->get();
+            }
+            foreach($gears as $gear){
+                if($gear->isWeapon == 1)
+                {
+                $gears = Gear::where('isWeapon', 0)->get();
+                $select = [];
+                foreach($gear as $gear){
+                        $select[$gear->id] = $gear->name;
+                }
+                } else
+                $gears = Gear::where('isWeapon', 1)->get();
+                $select = [];
+                foreach($gears as $gear){
+                        $select[$gear->id] = $gear->name;
+                }
+            }
+       }
+       
+       return view('monsters.updateMonster', ['monster' => $monster,
+        'monstergears' => $monstergears, 'select' => $select,
+        'gearslist' => $gearslist]);
+   }
+
+   function addGear (Request $request)
    {
        $monster = Monster::find($request->id);
        return view('monsters.updateMonster', ['monster' => $monster]);
@@ -53,10 +97,18 @@ class MonsterController extends Controller
 
    function save (Request $request)
    {
+       $monstergears = new MonsterGear();
        $monster = Monster::find($request->id);
        $monster->name = $request->name;
        $monster->description = $request->description;
        $monster->faction = $request->faction;
+
+
+       $monstergears->monster_id = $request->id;
+       $monstergears->gear_id = $request->gear_id;
+       $monstergears->save();
+
+
        $monster->save();
 
        return redirect('monsters');

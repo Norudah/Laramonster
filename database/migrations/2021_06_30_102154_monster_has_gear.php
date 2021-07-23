@@ -13,7 +13,7 @@ class MonsterHasGear extends Migration
      */
     public function up()
     {
-        Schema::create('monster_gear', function (Blueprint $table) {
+        Schema::create('monster_gears', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('monster_id');
             $table->bigInteger('gear_id');
@@ -28,6 +28,6 @@ class MonsterHasGear extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('monster_gear');
+        Schema::dropIfExists('monster_gears');
     }
 }

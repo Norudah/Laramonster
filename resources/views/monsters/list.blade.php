@@ -62,13 +62,14 @@
                     <table class="border-collapse border border-green-800 table-auto">
                         <thead>
                             <tr>
-                                <th class="border border-green-600 mx-auto">ID</th>
+                                <th class="border border-green-600 mx-auto">Nom</th>
                                 <th class="border border-green-600 mx-auto">description</th>
                                 <th class="border border-green-600 mx-auto">type</th>
                                 <th class="border border-green-600 mx-auto">height</th>
                                 <th class="border border-green-600 mx-auto">isDead</th>
                                 <th class="border border-green-600 mx-auto">diet</th>
                                 <th class="border border-green-600 mx-auto">User</th>
+                                <th class="border border-green-600 mx-auto">Gear</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -84,7 +85,6 @@
                                     <td class="border border-green-600 mx-auto"> 
                                         {{-- <button type="submit" class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Supprimer</button>
                                         <button class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Modifier</button> --}}
-                                        
                                         <a class="btn btn-info" href="{{ route('update', $monster->id) }}">Modifier</a>    
                                         <a class="btn btn-primary" href="{{ route('delete', $monster->id) }}">Supprimer</a>   
                                                 

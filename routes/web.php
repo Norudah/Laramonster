@@ -35,6 +35,7 @@ Route::get('/monsters', [MonsterController::class, 'index'])->middleware(['auth'
 Route::get('/monster/update/{id}', [MonsterController::class, 'update'])->middleware(['auth'])->name('update');
 Route::post('/monster/save', [MonsterController::class, 'save'])->middleware(['auth'])->name('save');
 Route::post('/monster/add', [MonsterController::class, 'add'])->middleware(["auth"])->name('monster-add');
+Route::get('/monster/monster-add-gear/{id}', [MonsterController::class, 'addGear'])->middleware(["auth"])->name('monster-add-gear');
 Route::get('/monster/delete/{id}', [MonsterController::class, 'delete'])->middleware(['auth'])->name('delete');
 
 // Gears
