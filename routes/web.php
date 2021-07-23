@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MonsterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GearController;
+use App\Http\Controllers\FightController;
 use App\Models\Monster;
 use App\Models\Gear;
 /*
@@ -57,6 +58,11 @@ Route::get('/users', [UserController::class, 'index'])->middleware(["auth"])->na
 Route::get('/users/delete/{id}', [UserController::class, 'delete'])->middleware(["auth"])->name('user-delete');
 Route::get('/users/modify/{id}', [UserController::class, 'modify'])->middleware(["auth"])->name('user-modify');
 Route::post('/users/modify/{id}', [UserController::class, 'modifyPersist'])->middleware(["auth"])->name('user-modify-persist');
+
+// Fight
+Route::get('/fights', [FightController::class, 'index'])->middleware(["auth"])->name('fights');
+Route::post('/fights/add', [FightController::class, 'addFight'])->middleware(["auth"])->name('fights-add');
+Route::get('/fights/delete/{id}', [FightController::class, 'deleteFight'])->middleware(["auth"])->name('fights-delete');
 
 
 Route::get('/lol',function() {
