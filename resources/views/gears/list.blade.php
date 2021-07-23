@@ -21,7 +21,7 @@
                                     @csrf
 
                                     <label for="isWeapon">Arme ou Armure ?</label>
-                                    <select name="isWeapon">
+                                    <select id="isWeapon" name="isWeapon">
                                         <option selected value="1">Arme</option>
                                         <option value="0">Armure</option>
                                     </select><br><br>
@@ -35,12 +35,15 @@
                                     <label for="material">Matériaux</label>
                                     <input type="text" name="material"><br><br>
 
+                                    <div id="type">
                                     <label for="type">Type de l'arme</label>
                                     <select name="type">
                                         @foreach ($types as $key => $value )  
                                             <option value="{{ $value }}">{{ $key }}</option>
                                         @endforeach
-                                    </select><br><br>
+                                    </select>
+                                    </div>
+                                    <br><br>
 
                                     <label for="category">Type de l'arme</label>
                                     <select name="category">
@@ -106,7 +109,10 @@
     @push("body-scripts")
         <script>
 
+            const isWeapon = document.querySelector("#isWeapon");
+            const type = document.querySelector("#type");
 
+            isWeapon.addEventListener("change", (e) => type.toggleAttribute("hidden"));
 
         </script>
     @endpush
