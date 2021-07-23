@@ -28,7 +28,6 @@ class CreateMonstersTable extends Migration
             $table->string('faction');
             $table->timestamps();
             $table->bigInteger("user_id");
-            $table->bigInteger("fight_id")->nullable();
         });
     }
 

@@ -12,11 +12,17 @@ class FightController extends Controller
 {
     public function index()
     {
-        return view('fight.list', [
+
+        $fights = 
+        [
             'fight' => Fight::all(),
             'users' => User::all(),
-            'arenas' => Arena::all()
-        ]);
+            'arenas' => Arena::all(),
+            'monsters' => Monster::all()
+        ];
+    
+        return view('fight.list' , $fights);
+        
     }
 
     public function addFight(Request $request) {
@@ -30,6 +36,7 @@ class FightController extends Controller
         $user2 = User::where('name', $request->user2)->first();
         //monstre du user2
         $monsterUser2 = Monster::where('user_id',$user2->id)->first();
+        
 
         $arenaFight = Arena::where('name' , $request->arena)->first();
 
@@ -37,6 +44,12 @@ class FightController extends Controller
         $fight->arena_id = $arenaFight->id;
         $fight->save();
 
-        ddd($request);
+        $monsterUser1->fight_id = $fight->id;
+        $monsterUser1->save();
+
+        $monsterUser2->fight_id = $fight->id;
+        $monsterUser2->save();
+
+        return redirect('fights')->with('succces', 'Combat ajouter!');
     }
 }

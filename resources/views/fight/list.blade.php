@@ -4,7 +4,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-5">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h2>Ajouter un matches</h2>
@@ -36,8 +36,6 @@
                             @endforeach
                         </select>
 
-                        <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="date" placeholder="Entrer la date">
-
                         <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Fight!">
                     </form> 
                 </div> 
@@ -47,9 +45,35 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    CRUD Combats
+                    Liste des combats
                 </div>
              </div>
         </div>
+
+        @foreach ($fight as $combat)
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <p class="text-sm">Combat du <i>{{ $combat->date_at }}</i></p>
+                    </br>
+
+                    //monstre1 where fight_id = combat->id -> first
+                    //monstre1 where fight_id = combat->id -> skip1-> first
+                    <i class="border rounded text-blue-500">Le pangolin</i> 
+                    <b> et son monstre </b> 
+                    <i class="border rounded text-blue-500"></i> 
+                    <b>VS</b> 
+                    <i class="border rounded text-red-500">machin chouette</i> 
+                    <b>et son monstre </b>
+                    <i class="border rounded text-red-500">pouet truc</i> 
+                </div>
+             </div>
+        </div>
+            
+        @endforeach
+
+
+
     </div>
 </x-app-layout>

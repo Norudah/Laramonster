@@ -17,7 +17,8 @@ class CreateFightsTable extends Migration
             $table->id();
             $table->dateTime('date_at')->default(now());
             $table->bigInteger("arena_id");
-            $table->timestamps();
+            $table->bigInteger("monstrer_first_id");
+            $table->bigInteger("monstrer_seconde_id");
         });
     }
 
