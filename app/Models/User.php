@@ -41,8 +41,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
-    public function monsters() {
-        return $this->hasMany(Monster::class);
+
+    public function monster() {
+        return $this->hasOne(Monster::class);
     }
 }

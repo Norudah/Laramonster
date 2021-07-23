@@ -22,7 +22,7 @@ class GearController extends Controller
 
     function index() {
         $gears = Gear::all();
-        return view('gears.list', ['gears' => $gears]);
+        return view('gears.list', ['gears' => $gears, "types" => $this->types, "categories" => $this->categories]);
     }
 
     function add(Request $request) {
@@ -32,7 +32,7 @@ class GearController extends Controller
         $gear->name = $request->name;
         $gear->value = $request->value;
         $gear->material = $request->material;
-        $gear->type = $request->type;
+        $request->isWeapon === 1 ? $gear->type = $request->type : $gear->type = null;
         $gear->category = $request->category;
 
         $gear->save();
@@ -56,7 +56,7 @@ class GearController extends Controller
         $gear->name = $request->name;
         $gear->value = $request->value;
         $gear->material = $request->material;
-        $gear->type = $request->type;
+        $request->isWeapon === 1 ? $gear->type = $request->type : $gear->type = null;
         $gear->category = $request->category;
 
         $gear->save();
