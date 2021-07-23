@@ -63,6 +63,9 @@ Route::get('/arena/update/stats/{id}', [ArenaController::class, 'updateArenaStat
 
 // Users
 Route::get('/users', [UserController::class, 'index'])->middleware(["auth"])->name('users');
+Route::get('/users/delete/{id}', [UserController::class, 'delete'])->middleware(["auth"])->name('user-delete');
+Route::get('/users/modify/{id}', [UserController::class, 'modify'])->middleware(["auth"])->name('user-modify');
+Route::post('/users/modify/{id}', [UserController::class, 'modifyPersist'])->middleware(["auth"])->name('user-modify-persist');
 
 
 Route::get('/lol',function() {
