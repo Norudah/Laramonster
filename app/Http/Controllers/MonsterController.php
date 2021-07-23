@@ -131,4 +131,11 @@ class MonsterController extends Controller
        return redirect('monsters')->with('status', 'Monster deleted ! ');
    }
 
+   function deleteGear (Request $request)
+   {
+       $monster = MonsterGear::find($request->id);
+       $monster->delete();
+       return redirect('monsters')->with('status', 'Gear deleted ! ');
+   }
+
 }

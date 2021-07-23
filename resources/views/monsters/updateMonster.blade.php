@@ -58,7 +58,7 @@
                                 <td class="border border-green-600 mx-auto">{{ $gear->type }}</td> 
                                 <td class="border border-green-600 mx-auto">{{ $gear->category }}</td> 
                                 <td class="border border-green-600 mx-auto"> 
-                                {{-- <a class="btn btn-primary" href="{{ route('gear-delete',$gear->id) }}">Supprimer</a>    --}}
+                                <a class="btn btn-primary" href="{{ route('delete-gear-monster',$gear->id) }}">Supprimer</a>   
    
                                 </td>
                             </tr>
