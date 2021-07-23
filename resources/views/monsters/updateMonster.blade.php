@@ -11,14 +11,14 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Update monster #{{ $monster->name }}<br><br>
 
-
-
                     {!! Form::open(['route' => 'save']) !!}
                         {!! Form::token(); !!}
                         {!! Form::hidden('id', $monster->id) !!}
 
-                        {!! Form::label('gear_id', 'Choose a weapons or gear') !!}
-                        {!! Form::select('gear_id', $select, null, ['class'=>'form-control']) !!}<br><br>
+                        @if ($select != 1)
+                            {!! Form::label('gear_id', 'Choose a weapons or gear') !!}
+                            {!! Form::select('gear_id', $select, null, ['class'=>'form-control']) !!}<br><br>
+                        @endif
 
                         {!! Form::label('name', "Nom du monstre") !!}
                         {!! Form::text('name', $monster->name) !!}<br><br>

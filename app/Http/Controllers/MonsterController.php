@@ -22,20 +22,30 @@ class MonsterController extends Controller
         $gears = Gear::all();
        
         $monstergears = MonsterGear::where('monster_id', $request->id)->get();
-
+        $idGears = [];
         foreach($monstergears as $monstergear){
-            $gearslist = Gear::where('id', $monstergear->gear_id)->get();
+            array_push($idGears, $monstergear->gear_id);
         }
 
-        if($monstergears->isEmpty()){
+        $gearslist = Gear::whereIn('id', $idGears)->get();
+
+        if ($monstergears->isEmpty()) {
+
             $select = [];
             foreach($gears as $gear){
                     $select[$gear->id] = $gear->name;
                 }
-        }else {
+
+        } elseif (!empty($monstergears)) {
+
+            $select = 1;
+
+        } else {
+
             foreach($monstergears as $monstergear){
                     $gears = Gear::where('id', $monstergear->gear_id)->get();
             }
+
             foreach($gears as $gear){
                 if($gear->isWeapon == 1)
                 {
