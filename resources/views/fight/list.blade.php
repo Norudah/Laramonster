@@ -51,29 +51,30 @@
         </div>
 
         @foreach ($fights as $fight)
-
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="p-6 bg-white border-b border-gray-200">                    
                     <p class="text-sm">
                         Combat du 
                         <i>{{ $fight->date_at }}</i>
                         dans l'arène
                         <i class="text-indigo-500">{{ $fight->arenas }}</i>
+                        <a class="pl-8" href="{{ route('fights-delete', $fight->id) }}">
+                            <button type="submit" class="bg-red-500 hover:bg-green-700 text-white font-bold p-1 rounded-lg">Supprimer</button>
+                        </a>                         
                     </p>
                     </br>
                     {{-- //fight->id     =>   monster->fight_id -> name --}}
                     <i class="border rounded text-blue-500">{{ $fight->users[0]->name }}</i> 
                     <b> et son monstre </b> 
                     <i class="border rounded text-blue-500">{{ $fight->monsters[0] }}</i> 
-                    <b>VS</b> 
+                    <b class="text-lg">CONTRE</b> 
                     <i class="border rounded text-red-500">{{ $fight->users[1]->name }}</i> 
                     <b>et son monstre </b>
                     <i class="border rounded text-red-500">{{ $fight->monsters[1] }}</i> 
-                </div>
-             </div>
-        </div>
-            
+                </div>                    
+             </div>             
+        </div>            
         @endforeach
 
 

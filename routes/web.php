@@ -62,6 +62,7 @@ Route::post('/users/modify/{id}', [UserController::class, 'modifyPersist'])->mid
 // Fight
 Route::get('/fights', [FightController::class, 'index'])->middleware(["auth"])->name('fights');
 Route::post('/fights/add', [FightController::class, 'addFight'])->middleware(["auth"])->name('fights-add');
+Route::get('/fights/delete/{id}', [FightController::class, 'deleteFight'])->middleware(["auth"])->name('fights-delete');
 
 
 Route::get('/lol',function() {

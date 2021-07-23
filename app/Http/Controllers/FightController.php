@@ -25,7 +25,6 @@ class FightController extends Controller
         
         foreach($clashs['fights'] as $fight)
         {
-        
             $monster1 = Monster::where('id' , $fight->monster_first_id)->get();
             $monster2 = Monster::where('id' , $fight->monster_second_id)->get();
             $arenas = Arena::where('id' , $fight->arena_id)->get();
@@ -47,15 +46,10 @@ class FightController extends Controller
                 $users[] = $secondMonster->user;
                 $monstres[] = $secondMonster->name;
             }
-
             
             $fight->users = $users;
             $fight->monsters = $monstres;
             $fight->arenas = $arenas;
-
-            
-
-               
         }
 
         return view('fight.list' , $clashs);
@@ -82,5 +76,11 @@ class FightController extends Controller
         $fight->save();
 
         return redirect('fights')->with('succces', 'Combat ajouter!');
+    }
+
+    public function deleteFight($id){        
+            $fight = Fight::find($id);
+            $fight->delete();
+            return redirect('fights')->with('success','Le combat à bien été supprimer!');                            
     }
 }
