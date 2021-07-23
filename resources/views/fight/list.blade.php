@@ -32,7 +32,7 @@
 
                         <select name="arena" class="shadow appearance-none border rounded py-2 px-8 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             @foreach ($arenas as $arena)    
-                                <option value="{{ $arena->name }}">{{ $arena->name }}</option>
+                                <option value="{{ $arena->name }}">{{ $arena->name }} -<i>{{ $arena->localisation }}</i></option>
                             @endforeach
                         </select>
 
@@ -50,23 +50,26 @@
              </div>
         </div>
 
-        @foreach ($fight as $combat)
+        @foreach ($fights as $fight)
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <p class="text-sm">Combat du <i>{{ $combat->date_at }}</i></p>
+                    <p class="text-sm">
+                        Combat du 
+                        <i>{{ $fight->date_at }}</i>
+                        dans l'arène
+                        <i>{{ $fight->arena_id }}</i>
+                    </p>
                     </br>
-
-                    //monstre1 where fight_id = combat->id -> first
-                    //monstre1 where fight_id = combat->id -> skip1-> first
-                    <i class="border rounded text-blue-500">Le pangolin</i> 
+                    {{-- //fight->id     =>   monster->fight_id -> name --}}
+                    <i class="border rounded text-blue-500">{{ $fight->users[0]->name }}</i> 
                     <b> et son monstre </b> 
-                    <i class="border rounded text-blue-500"></i> 
+                    <i class="border rounded text-blue-500">{{ $fight->monsters[0] }}</i> 
                     <b>VS</b> 
-                    <i class="border rounded text-red-500">machin chouette</i> 
+                    <i class="border rounded text-red-500">{{ $fight->users[1]->name }}</i> 
                     <b>et son monstre </b>
-                    <i class="border rounded text-red-500">pouet truc</i> 
+                    <i class="border rounded text-red-500">{{ $fight->monsters[1] }}</i> 
                 </div>
              </div>
         </div>

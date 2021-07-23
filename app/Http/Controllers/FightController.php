@@ -12,17 +12,45 @@ class FightController extends Controller
 {
     public function index()
     {
-
-        $fights = 
+        $pouet = [0=>'pouet',1=>'truc',2=>'machin',3=>'chouette'];
+        $arrayMonster = [];
+        $clashs = 
         [
-            'fight' => Fight::all(),
+            'fights' => Fight::all(),
             'users' => User::all(),
             'arenas' => Arena::all(),
-            'monsters' => Monster::all()
-        ];
-    
-        return view('fight.list' , $fights);
+            'monsters' => Monster::all(),
+            'pouet' => $pouet,
+        ];    
         
+        foreach($clashs['fights'] as $fight)
+        {
+        
+            $monster1 = Monster::where('id' , $fight->monster_first_id)->get();
+            $monster2 = Monster::where('id' , $fight->monster_second_id)->get();
+
+            $users = [];
+            $monstres = [];
+            
+            foreach($monster1 as $firstMonster)
+            {
+                $users[] = $firstMonster->user;
+                $monstres[] = $firstMonster->name;
+            }
+
+            foreach($monster2 as $secondMonster)
+            {   
+                $users[] = $secondMonster->user;
+                $monstres[] = $secondMonster->name;
+            }
+
+            
+            $fight->users = $users;
+            $fight->monsters = $monstres;
+               
+        }
+
+        return view('fight.list' , $clashs);
     }
 
     public function addFight(Request $request) {
@@ -36,19 +64,14 @@ class FightController extends Controller
         $user2 = User::where('name', $request->user2)->first();
         //monstre du user2
         $monsterUser2 = Monster::where('user_id',$user2->id)->first();
-        
-
+        //areneID
         $arenaFight = Arena::where('name' , $request->arena)->first();
 
         $fight = new Fight;
         $fight->arena_id = $arenaFight->id;
+        $fight->monster_first_id = $monsterUser1->id;
+        $fight->monster_second_id = $monsterUser2->id;
         $fight->save();
-
-        $monsterUser1->fight_id = $fight->id;
-        $monsterUser1->save();
-
-        $monsterUser2->fight_id = $fight->id;
-        $monsterUser2->save();
 
         return redirect('fights')->with('succces', 'Combat ajouter!');
     }

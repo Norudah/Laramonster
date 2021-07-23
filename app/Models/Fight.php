@@ -9,9 +9,9 @@ class Fight extends Model
 {
     use HasFactory;
 
-    public function monsters() {
-        return $this->hasMany(Monster::class, "monster_id");
-    }
+    public $monsters;
+
+    public $users;
 
     public function arenas() {
         return $this->belongsTo(Arena::class, "arena_id");
