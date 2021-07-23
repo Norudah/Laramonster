@@ -17,36 +17,41 @@
 
                                 <h1 class="text-5xl	">Ajouter un équipement</h1><br><br>
 
-                                {!! Form::open(['route' => 'gear-add']) !!}
-                                    {!! Form::token(); !!}
+                                <form action="{{ route('gear-add') }}" method="POST">
+                                    @csrf
 
-                                    {!! Form::label('isWeapon', "Arme ou armure ?") !!}
-                                    {!! Form::select('isWeapon', [true => 'Arme', false => 'Armure'], true) !!}<br><br>
+                                    <label for="isWeapon">Arme ou Armure ?</label>
+                                    <select name="isWeapon">
+                                        <option selected value="1">Arme</option>
+                                        <option value="0">Armure</option>
+                                    </select><br><br>
 
-                                    {!! Form::label('name', "Nom de l'équipement") !!}
-                                    {!! Form::text('name') !!}<br><br>
+                                    <label for="name">Nom</label>
+                                    <input type="text" name="name"><br><br>
 
-                                    {!! Form::label('value', "Valeur de l'équipement") !!}
-                                    {!! Form::text('value') !!}<br><br>
+                                    <label for="value">Valeur</label>
+                                    <input type="text" name="value"><br><br>
 
-                                    {!! Form::label('material', "Matériaux de l'équipement") !!}
-                                    {!! Form::text('material') !!}<br><br>
+                                    <label for="material">Matériaux</label>
+                                    <input type="text" name="material"><br><br>
 
-                                    {!! Form::label('type', "Type de l'arme")!!}
-                                    {!! Form::select('type', [
-                                        "estoc" => 'Estoc', 
-                                        "tranchante" => 'Tranchante', 
-                                        "contondante" => "Contondante"], "tranchante") !!}<br><br>
+                                    <label for="type">Type de l'arme</label>
+                                    <select name="type">
+                                        @foreach ($types as $key => $value )  
+                                            <option value="{{ $value }}">{{ $key }}</option>
+                                        @endforeach
+                                    </select><br><br>
 
-                                    {!! Form::label('category', "Type de l'arme") !!}
-                                    {!! Form::select('category', [
-                                        "light" => 'Léger',
-                                        "medium" => 'Moyenne',
-                                        "heavy" => "Lourde"], "medium") !!}<br><br>
-                                    
-                                    {!! Form::submit('Submit') !!}<br><br>
+                                    <label for="category">Type de l'arme</label>
+                                    <select name="category">
+                                        @foreach ($categories as $key => $value )
+                                            <option value="{{ $value }}">{{ $key }}</option>
+                                        @endforeach
+                                    </select><br><br>
 
-                                {!! Form::close() !!}
+                                    <button class="button" type="submit">Enregistrer les modifications</button>
+
+                                </form>
 
                                 <br><br><br>
 
@@ -97,4 +102,12 @@
             </div>
         </div>
     </div>
+
+    @push("body-scripts")
+        <script>
+
+
+
+        </script>
+    @endpush
 </x-app-layout>

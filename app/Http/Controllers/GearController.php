@@ -22,7 +22,7 @@ class GearController extends Controller
 
     function index() {
         $gears = Gear::all();
-        return view('gears.list', ['gears' => $gears]);
+        return view('gears.list', ['gears' => $gears, "types" => $this->types, "categories" => $this->categories]);
     }
 
     function add(Request $request) {
