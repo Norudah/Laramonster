@@ -11,4 +11,9 @@ class Gear extends Model
     public function monsters() {
         return $this->belongsToMany(Monster::class, 'monster_gear');
     }
+
+    public function monsterGear()
+    {
+        return $this->belongsToMany(Monster::class, 'monster_gear');
+    }
 }

@@ -10,11 +10,11 @@ class Monster extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["name", "description", "type", "height", "isDead", "diet",
+    protected $fillable = ["id","name", "description", "type", "height", "isDead", "diet",
     "health", "attack", "defense", "speed", "faction", "user_id", "fight_id"];
 
-    public function gears() {
-        return $this->belongsToMany(Gear::class, 'monster_gear');
+    public function monsterGear() {
+        return $this->belongsToMany(MonsterGear::class, 'monster_gears');
     }
 
     public function user()
@@ -22,7 +22,7 @@ class Monster extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function fights() 
+    public function fight() 
     {
         return $this->belongsTo(Fight::class, "fight_id");
     }
