@@ -20,7 +20,7 @@
                             @endforeach
                         </select>
 
-                        <b>VS</b>
+                        <b>CONTRE</b>
                         
                         <select name="user2" class="shadow appearance-none border rounded py-2 px-8 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             @foreach ($users as $user)    

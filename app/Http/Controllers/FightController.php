@@ -31,7 +31,6 @@ class FightController extends Controller
 
             $arenas = $arenas[0]->name;
             
-
             $users = [];
             $monstres = [];
             
