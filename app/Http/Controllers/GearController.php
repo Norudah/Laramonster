@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use App\Models\Gear;
 
 class GearController extends Controller
 {
@@ -32,7 +33,7 @@ class GearController extends Controller
         $gear->name = $request->name;
         $gear->value = $request->value;
         $gear->material = $request->material;
-        $request->isWeapon === 1 ? $gear->type = $request->type : $gear->type = null;
+        $request->isWeapon == 1 ? $gear->type = $request->type : $gear->type = null;
         $gear->category = $request->category;
 
         $gear->save();
@@ -56,7 +57,7 @@ class GearController extends Controller
         $gear->name = $request->name;
         $gear->value = $request->value;
         $gear->material = $request->material;
-        $request->isWeapon === 1 ? $gear->type = $request->type : $gear->type = null;
+        $request->isWeapon == 1 ? $gear->type = $request->type : $gear->type = null;
         $gear->category = $request->category;
 
         $gear->save();

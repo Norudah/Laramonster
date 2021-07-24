@@ -21,8 +21,8 @@
 
                                     <label for="isWeapon">Arme ou Armure ?</label>
                                     <select name="isWeapon">
-                                        <option value="1">Arme</option>
-                                        <option value="0">Armure</option>
+                                        <option @if ($gear->isWeapon == 1) selected @endif value="1">Arme</option>
+                                        <option @if ($gear->isWeapon == 0) selected @endif value="0">Armure</option>
                                     </select>
 
                                     <label for="name">Nom</label>
@@ -70,4 +70,15 @@
             </div>
         </div>
     </div>
+
+    @push("body-scripts")
+        <script>
+
+            const isWeapon = document.querySelector("#isWeapon");
+            const type = document.querySelector("#type");
+
+            isWeapon.addEventListener("change", (e) => type.toggleAttribute("hidden"));
+
+        </script>
+    @endpush    
 </x-app-layout>
